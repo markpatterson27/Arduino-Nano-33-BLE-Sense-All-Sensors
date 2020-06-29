@@ -13,6 +13,7 @@ float gyro_x, gyro_y, gyro_z;
 float mag_x, mag_y, mag_z;
 float pressure;
 float temperature, humidity;
+int red, green, blue, ambient;
 int proximity;
 
 
@@ -65,8 +66,18 @@ void loop() {
     Serial.print("Humidity = ");Serial.println(humidity);
     delay (200);
 
-    // Read Proximity sensor value
-    if (APDS.proximityAvailable()) {
+    // Read Gesture, Color, Proximity sensor values
+    while (!APDS.colorAvailable()) {   // wait for color reading
+        delay(5);
+    }
+    APDS.readColor(red, green, blue, ambient);    // read the color
+    Serial.print("Colors = ");
+        Serial.print("R: ");Serial.print(red);Serial.print(", ");
+        Serial.print("G: ");Serial.print(green);Serial.print(", ");
+        Serial.print("B: ");Serial.print(blue);Serial.print(", ");
+        Serial.print("A: ");Serial.print(ambient);Serial.println();
+
+    if (APDS.proximityAvailable()) {    // read proximity
         proximity = APDS.readProximity();
         Serial.print("Proximity = ");Serial.println(proximity); 
     }
