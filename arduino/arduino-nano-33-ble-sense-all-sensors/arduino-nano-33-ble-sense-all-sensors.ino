@@ -21,6 +21,12 @@ int gesture;
 void setup() {
     Serial.begin(9600); // serial monitor
 
+    // initialize LED pins as as outputs.
+    pinMode(LED_BUILTIN, OUTPUT);
+    pinMode(LEDR, OUTPUT);
+    pinMode(LEDG, OUTPUT);
+    pinMode(LEDB, OUTPUT);
+
     if (!IMU.begin()) { // initialize IMU sensor
         Serial.println("Failed to initialize IMU!"); while (1);
     }
@@ -40,6 +46,22 @@ void setup() {
 
 
 void loop() {
+    // Flash LEDs
+    // for the RGB LED, high is off
+    digitalWrite(LED_BUILTIN, HIGH);    // turn on BUILTIN
+    delay(250);
+    digitalWrite(LED_BUILTIN, LOW);     // turn off BUILTIN
+    digitalWrite(LEDR, LOW);           // turn on red LED
+    delay(250);
+    digitalWrite(LEDR, HIGH);           // turn off red LED
+    digitalWrite(LEDG, LOW);           // turn on green LED
+    delay(250);
+    digitalWrite(LEDG, HIGH);           // turn off green LED
+    digitalWrite(LEDB, LOW);           // turn on blue LED
+    delay(250);
+    digitalWrite(LEDB, HIGH);           // turn off blue LED
+
+
     // Read IMU values
     if (IMU.accelerationAvailable()) {  // accelerometer values
         IMU.readAcceleration(accel_x, accel_y, accel_z);
