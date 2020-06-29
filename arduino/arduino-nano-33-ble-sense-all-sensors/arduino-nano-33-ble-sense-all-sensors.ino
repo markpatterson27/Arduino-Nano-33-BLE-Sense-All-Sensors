@@ -15,6 +15,7 @@ float pressure;
 float temperature, humidity;
 int red, green, blue, ambient;
 int proximity;
+int gesture;
 
 
 void setup() {
@@ -81,6 +82,26 @@ void loop() {
         proximity = APDS.readProximity();
         Serial.print("Proximity = ");Serial.println(proximity); 
     }
+
+    // ** Gesture and color reading don't seem to be able to both work at same time **
+
+    // while (!APDS.gestureAvailable()){   // wait for gesture reading
+    //     delay(5);
+    // }
+    // gesture = APDS.readGesture();   // read gesture
+    // Serial.print("Gesture = ");
+    // switch (gesture) {
+    //     case GESTURE_UP: 
+    //         Serial.println("UP");break;
+    //     case GESTURE_DOWN: 
+    //         Serial.println("DOWN");break;
+    //     case GESTURE_LEFT: 
+    //         Serial.println("LEFT"); break;
+    //     case GESTURE_RIGHT: 
+    //         Serial.println("RIGHT");break;
+    //     default: // ignore
+    //         break;
+    // }
     delay (200);
 
     Serial.println("_____________________________________________________"); 
