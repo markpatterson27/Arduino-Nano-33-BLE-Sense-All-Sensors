@@ -1,0 +1,4 @@
+{
+    "sketch": "arduino\\arduino-nano-33-ble-sense-all-sensors\\arduino-nano-33-ble-sense-all-sensors.ino",
+    "board": "arduino:mbed:nano33ble"
+}
