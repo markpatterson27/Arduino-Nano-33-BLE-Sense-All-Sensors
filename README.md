@@ -2,6 +2,8 @@
 
 Sketch for the Arduino Nano 33 BLE Sensor that outputs readings from all the onboard sensors to the serial monitor.
 
+![serial monitor](assets/serial-monitor.png)
+
 ## Libraries
 
 The following libraries need to be installed. Either install them through the arduino libraries manager, or they are included in this repo as git submodules. (Use `git clone --recursive` when cloning or `git submodule update --init --recursive` after.)
