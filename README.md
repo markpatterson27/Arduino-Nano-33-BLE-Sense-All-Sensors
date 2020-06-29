@@ -14,3 +14,4 @@ The following libraries need to be installed. Either install them through the ar
 ## References
 
 - https://www.arduino.cc/en/Guide/NANO33BLESense
+- https://circuitdigest.com/microcontroller-projects/arduino-nano-33-ble-sense-board-review-and-getting-started-guide
